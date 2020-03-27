@@ -21,14 +21,16 @@ class WeatherForecastActivity : AppCompatActivity() {
 
         var retriever = WeatherRetriever()
 
-        val callback = object : retrofit2.Callback<List<Forecast>>{
+        val callback = object : retrofit2.Callback<Weather>{
 
-            override fun onFailure(call: Call<List<Forecast>>, t: Throwable) {
+            override fun onFailure(call: Call<Weather>, t: Throwable) {
                 println("t: " + t.message)
             }
 
-            override fun onResponse(call: Call<List<Forecast>>, response: Response<List<Forecast>>) {
+            override fun onResponse(call: Call<Weather>, response: Response<Weather>) {
                 println("response: " + response)
+
+                title = response?.body()?.city?.name
             }
 
         }
