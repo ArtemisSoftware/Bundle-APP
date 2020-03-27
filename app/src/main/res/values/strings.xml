@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">BundleApp</string>
+    <string name="kotlin_bundle_app">Kotlin Bundle App</string>
+</resources>
