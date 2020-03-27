@@ -2,4 +2,5 @@
     <string name="app_name">BundleApp</string>
     <string name="kotlin_bundle_app">Kotlin Bundle App</string>
     <string name="a_kotlin_tutorial">A kotlin tutorial</string>
+    <string name="get_forecast">Get Forecast</string>
 </resources>
