@@ -5,14 +5,15 @@ import retrofit2.Callback
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
+import retrofit2.http.Query
 
 interface WeatherApi {
 
     //http://api.openweathermap.org/data/2.5/weather?q=Dubai&APPID=653b1f0bf8a08686ac505ef6f05b94c2
     //http://api.openweathermap.org/data/2.5/forecast/daily?q=Dubai&cnt=5&appid=653b1f0bf8a08686ac505ef6f05b94c2
 
-    @GET("daily?q=Dubai&cnt=5&appid=653b1f0bf8a08686ac505ef6f05b94c2")
-    fun getForecast() : Call<Weather>
+    @GET("daily?cnt=5&appid=653b1f0bf8a08686ac505ef6f05b94c2")
+    fun getForecast(@Query("q") searchTerm: String) : Call<Weather>
 
 
 }
@@ -34,8 +35,9 @@ class WeatherRetriever{
         service = retrofit.create(WeatherApi::class.java)
     }
 
-    fun getForecast(callback : Callback<Weather>){
-        val call = service.getForecast()
+    fun getForecast(callback : Callback<Weather>, searchTerm: String){
+
+        val call = service.getForecast(searchTerm)
 
         call.enqueue(callback)
     }

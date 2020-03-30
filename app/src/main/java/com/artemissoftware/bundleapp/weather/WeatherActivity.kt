@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
+import android.widget.EditText
 import com.artemissoftware.bundleapp.R
 
 class WeatherActivity : AppCompatActivity() {
@@ -20,6 +21,9 @@ class WeatherActivity : AppCompatActivity() {
     private fun btn_get_forecast__OnClickListener(it: View?) {
 
         val intent = Intent(getApplicationContext(), WeatherForecastActivity::class.java)
+
+        val searchEditText = findViewById<EditText>(R.id.searchEditText)
+        intent.putExtra("searchTerm",searchEditText.text.toString())
         startActivity(intent)
     }
 

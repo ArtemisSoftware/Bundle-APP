@@ -17,6 +17,7 @@ class WeatherForecastActivity : AppCompatActivity() {
         setContentView(R.layout.activity_weather_forecast)
 
 
+
         var rcl_forecast = findViewById<RecyclerView>(R.id.rcl_forecast)
 
         rcl_forecast.apply {
@@ -25,7 +26,6 @@ class WeatherForecastActivity : AppCompatActivity() {
         }
 
 
-        var retriever = WeatherRetriever()
 
         val callback = object : retrofit2.Callback<Weather>{
 
@@ -45,7 +45,14 @@ class WeatherForecastActivity : AppCompatActivity() {
 
         }
 
-        retriever.getForecast(callback)
+        var searchTerm = intent.extras?.getString("searchTerm")
+
+        if(searchTerm == ""){
+            searchTerm = "Madrid"
+        }
+
+        var retriever = WeatherRetriever()
+        retriever.getForecast(callback, searchTerm!!)
     }
 
 
