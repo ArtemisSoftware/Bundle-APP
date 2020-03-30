@@ -17,7 +17,7 @@ interface WeatherApi {
 
 }
 
-class Weather(val city: CityWeather, val list: ListWeather)
+class Weather(val city: CityWeather, val list: List<ListWeather>)
 class CityWeather(val name: String)
 class ListWeather (val weather: List<WeatherDescription>)
 class WeatherDescription (val main: String, val description: String)
@@ -30,7 +30,7 @@ class WeatherRetriever{
     val service :  WeatherApi
 
     init {
-        val retrofit = Retrofit.Builder().baseUrl("http://api.openweathermap.org/data/2.5/").addConverterFactory(GsonConverterFactory.create()).build()
+        val retrofit = Retrofit.Builder().baseUrl("http://api.openweathermap.org/data/2.5/forecast/").addConverterFactory(GsonConverterFactory.create()).build()
         service = retrofit.create(WeatherApi::class.java)
     }
 
