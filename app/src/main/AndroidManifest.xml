@@ -12,10 +12,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".todolist.AddToDoActivity"></activity>
         <activity
             android:name=".todolist.TodoListActivity"
             android:label="@string/title_activity_todo_list"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".weather.WeatherForecastActivity" />
         <activity android:name=".weather.WeatherActivity" />
         <activity android:name=".MainActivity">

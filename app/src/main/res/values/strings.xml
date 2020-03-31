@@ -4,4 +4,7 @@
     <string name="a_kotlin_tutorial">A kotlin tutorial</string>
     <string name="get_forecast">Get Forecast</string>
     <string name="title_activity_todo_list">TodoListActivity</string>
+    <string name="something_to_do">Something to do</string>
+    <string name="important">Important</string>
+    <string name="add">Add</string>
 </resources>

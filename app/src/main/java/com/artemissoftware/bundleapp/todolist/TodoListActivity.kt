@@ -1,5 +1,6 @@
 package com.artemissoftware.bundleapp.todolist
 
+import android.content.Intent
 import android.os.Bundle
 import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
@@ -14,10 +15,11 @@ class TodoListActivity : AppCompatActivity() {
         setContentView(R.layout.activity_todo_list)
         setSupportActionBar(toolbar)
 
-        fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show()
+        fab.setOnClickListener{
+            var addIntent = Intent(this, AddToDoActivity::class.java)
+            startActivity(addIntent)
         }
+
     }
 
 }
