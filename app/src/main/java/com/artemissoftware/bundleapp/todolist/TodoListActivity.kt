@@ -2,6 +2,7 @@ package com.artemissoftware.bundleapp.todolist
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Toast
 import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -34,9 +35,21 @@ class TodoListActivity : AppCompatActivity() {
         val results = query.findAll()
 
         var todoRclView = findViewById<RecyclerView>(R.id.todoRclView)
+
+
+
+
         todoRclView.apply {
             layoutManager = LinearLayoutManager(applicationContext)
-            adapter = TodoListAdapter(results)
+            adapter = TodoListAdapter(results, { todo -> openActivity(todo) })
         }
+
+    }
+
+    private fun openActivity(todo: ToDoItem) {
+
+        var intent = Intent(this, FinishToDoActivity::class.java)
+        intent.putExtra("todoItem", todo.getId())
+        startActivity(intent)
     }
 }
