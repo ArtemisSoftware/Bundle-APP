@@ -22,8 +22,6 @@ class TodoListActivity : AppCompatActivity() {
         }
 
 
-        //realm
-        Realm.init(this)
 
     }
 
