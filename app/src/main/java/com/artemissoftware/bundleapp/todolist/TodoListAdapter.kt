@@ -17,6 +17,7 @@ class TodoListAdapter (private var list: List<ToDoItem>, private val mListener: 
         holder.itemView.setOnClickListener {
             list.get(position)?.let { it1 -> mListener.invoke(it1) }
         }
+
     }
 
     override fun getItemCount(): Int = list.size
