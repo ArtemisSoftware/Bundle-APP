@@ -3,4 +3,5 @@
     <string name="kotlin_bundle_app">Kotlin Bundle App</string>
     <string name="a_kotlin_tutorial">A kotlin tutorial</string>
     <string name="get_forecast">Get Forecast</string>
+    <string name="title_activity_todo_list">TodoListActivity</string>
 </resources>
