@@ -4,6 +4,8 @@ import android.content.Intent
 import android.os.Bundle
 import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.artemissoftware.bundleapp.R
 import io.realm.Realm
 
@@ -21,8 +23,20 @@ class TodoListActivity : AppCompatActivity() {
             startActivity(addIntent)
         }
 
-
-
     }
 
+
+    override fun onResume() {
+        super.onResume()
+
+        val realm = Realm.getDefaultInstance()
+        val query = realm.where(ToDoItem::class.java)
+        val results = query.findAll()
+
+        var todoRclView = findViewById<RecyclerView>(R.id.todoRclView)
+        todoRclView.apply {
+            layoutManager = LinearLayoutManager(applicationContext)
+            adapter = TodoListAdapter(results)
+        }
+    }
 }

@@ -25,7 +25,6 @@ class AddToDoActivity : AppCompatActivity() {
 
     private fun addButton__OnClickListener(it: View?) {
 
-
         val todo = ToDoItem()
         todo.name = (findViewById(R.id.toDoEditText) as EditText).text.toString()
         todo.important = (findViewById(R.id.importatCheckBox) as CheckBox).isChecked
@@ -34,5 +33,7 @@ class AddToDoActivity : AppCompatActivity() {
         realm.beginTransaction()
         realm.copyToRealm(todo)
         realm.commitTransaction()
+
+        finish()
     }
 }
