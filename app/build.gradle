@@ -1,8 +1,9 @@
 apply plugin: 'com.android.application'
-
+apply plugin: 'kotlin-kapt'
 apply plugin: 'kotlin-android'
-
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'realm-android'
+
 
 android {
     compileSdkVersion 29
@@ -43,4 +44,6 @@ dependencies {
     implementation 'com.squareup.retrofit2:retrofit:2.8.1'
 
     implementation 'com.squareup.retrofit2:converter-gson:2.8.1'
+
+    //implementation 'io.realm:realm-gradle-plugin:6.1.0'
 }

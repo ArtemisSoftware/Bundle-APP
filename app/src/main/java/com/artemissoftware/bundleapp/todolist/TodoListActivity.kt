@@ -5,6 +5,7 @@ import android.os.Bundle
 import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
 import com.artemissoftware.bundleapp.R
+import io.realm.Realm
 
 import kotlinx.android.synthetic.main.activity_todo_list.*
 
@@ -19,6 +20,10 @@ class TodoListActivity : AppCompatActivity() {
             var addIntent = Intent(this, AddToDoActivity::class.java)
             startActivity(addIntent)
         }
+
+
+        //realm
+        Realm.init(this)
 
     }
 
