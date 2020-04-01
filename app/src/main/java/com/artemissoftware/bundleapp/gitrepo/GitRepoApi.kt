@@ -6,6 +6,7 @@ import retrofit2.Callback
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
+import retrofit2.http.Path
 import retrofit2.http.Query
 
 interface GitRepoApi {
@@ -13,6 +14,10 @@ interface GitRepoApi {
 
     @GET("search/repositories?")
     fun searchRepos(@Query("q") searchTerm: String) : Call<GitHubResult>
+
+
+    @GET("users/{user}/repos")
+    fun searchUser(@Path("user") username: String) : Call<List<Repo>>
 
 
 }
@@ -39,4 +44,11 @@ class GitHubRetriever{
         call.enqueue(callback)
     }
 
+
+    fun searchUser(callback : Callback<List<Repo>>, searchTerm: String){
+
+        val call = service.searchUser(searchTerm)
+
+        call.enqueue(callback)
+    }
 }

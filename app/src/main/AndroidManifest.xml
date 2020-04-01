@@ -13,7 +13,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".gitrepo.RepoSearchResultActivity"></activity>
+        <activity
+            android:name=".gitrepo.Main2Activity"
+            android:label="@string/title_activity_main2"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".gitrepo.RepoSearchResultActivity" />
         <activity android:name=".gitrepo.GitRepoActivity" />
         <activity android:name=".todolist.FinishToDoActivity" />
         <activity android:name=".todolist.AddToDoActivity" />
