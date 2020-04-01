@@ -6,6 +6,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.artemissoftware.bundleapp.R
+import com.squareup.picasso.Picasso
 
 class GitRepoViewHolder(inflater: LayoutInflater, parent: ViewGroup) :
 
@@ -20,6 +21,9 @@ class GitRepoViewHolder(inflater: LayoutInflater, parent: ViewGroup) :
     }
 
     fun bind(repo: Repo) {
+
+        Picasso.get().load(repo.owner.avatar_url).into(avatar);
+
         //avatar?.setImageURI() = weather.main
         description?.text = repo.full_name
     }
