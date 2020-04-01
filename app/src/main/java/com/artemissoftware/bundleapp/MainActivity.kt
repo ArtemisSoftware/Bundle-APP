@@ -16,13 +16,9 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-
         (findViewById(R.id.weatherButton) as Button).setOnClickListener{weatherButton__OnClickListener(it)};
         (findViewById(R.id.todoButton) as Button).setOnClickListener{todoButton__OnClickListener(it)};
         (findViewById(R.id.gitRepohButton) as Button).setOnClickListener{gitRepohButton__OnClickListener(it)};
-
-        val intent = Intent(getApplicationContext(), GitRepoActivity::class.java)
-        startActivity(intent)
 
     }
 
