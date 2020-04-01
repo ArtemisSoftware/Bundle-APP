@@ -3,6 +3,7 @@ package com.artemissoftware.bundleapp
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.artemissoftware.bundleapp.gitrepo.GitRepoActivity
 import com.artemissoftware.bundleapp.todolist.TodoListActivity
 import com.artemissoftware.bundleapp.weather.WeatherActivity
 import com.artemissoftware.bundleapp.weather.WeatherForecastActivity
@@ -14,7 +15,8 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         //val intent = Intent(getApplicationContext(), WeatherActivity::class.java)
-        val intent = Intent(getApplicationContext(), TodoListActivity::class.java)
+        //val intent = Intent(getApplicationContext(), TodoListActivity::class.java)
+        val intent = Intent(getApplicationContext(), GitRepoActivity::class.java)
         startActivity(intent)
 
     }
