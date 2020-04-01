@@ -6,4 +6,10 @@
     android:layout_height="match_parent"
     tools:context=".gitrepo.RepoSearchResultActivity">
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rcl_repos"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="231dp"
+        tools:layout_editor_absoluteY="399dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

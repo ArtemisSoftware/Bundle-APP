@@ -1,5 +1,7 @@
 package com.artemissoftware.bundleapp.gitrepo
 
+import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -13,15 +15,15 @@ class RepoSearchResultActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_repo_search_result)
-/*
-        var rcl_forecast = findViewById<RecyclerView>(R.id.rcl_forecast)
 
-        rcl_forecast.apply {
+        var rcl_repos = findViewById<RecyclerView>(R.id.rcl_repos)
+
+        rcl_repos.apply {
             layoutManager = LinearLayoutManager(applicationContext)
             //adapter = WeatherListAdapter(mNicolasCageMovies)
         }
 
-*/
+
 
         val callback = object : retrofit2.Callback<GitHubResult>{
 
@@ -34,23 +36,27 @@ class RepoSearchResultActivity : AppCompatActivity() {
 
                 //title = response?.body()?.city?.name
 
-                /*
-                rcl_forecast.apply {
-                    adapter = response?.body()?.list?.let { WeatherListAdapter(it) }
+                rcl_repos.apply {
+                    adapter = response?.body()?.items?.let { GitRepoListAdapter(it, { repo -> openUrl(repo) }) }
                 }
-                */
-            }
 
+            }
         }
 
         var searchTerm = intent.extras?.getString("searchTerm")
 
         if(searchTerm == ""){
-            searchTerm = "Madrid"
+            searchTerm = "Eggs"
         }
 
         var retriever = GitHubRetriever()
         retriever.searchRepos(callback, searchTerm!!)
 
+    }
+
+    private fun openUrl(repo: Repo) {
+
+        val intent = Intent(Intent.ACTION_VIEW, Uri.parse(repo.html_url));
+        startActivity(intent)
     }
 }
